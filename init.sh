@@ -1,17 +1,19 @@
 #!/bin/bash
 
-mkdir ember
-mkdir nodejs
+mkdir workspace
 mkdir mongo
 
 echo "Please enter the name of web application (like app-myappUI) :"
-read WEB_NAME
+read APP_WEB
 
 echo "Please enter the name of backoffice application (like app-myapp) :"
-read BACKOFFICE_NAME
+read APP_BACK
 
-docker-compose run embercli ember new ${WEB_NAME}
-docker-compose run nodejscli yo angular-fullstack ${BACKOFFICE_NAME}
+docker-compose run embercli ember new ${APP_WEB}
+docker-compose run nodejscli yo angular-fullstack ${APP_BACK}
 
+
+sed -i 's/APP_WEB/${APP_WEB}/g' docker-compose.yml
+sed -i 's/APP_BACK/${APP_BACK}/g' docker-compose.yml
 
 docker-compose up 

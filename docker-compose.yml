@@ -1,7 +1,7 @@
 embercli:
   image: quay.io/webcenter/ember-coder
   volumes:
-    - ./ember:/node/src
+    - ./workspace:/node/src
     - /tmp/.X11-unix:/tmp/.X11-unix:ro
   environment:
     - DISPLAY
@@ -9,7 +9,7 @@ embercli:
 emberrun:
   image: quay.io/webcenter/ember-builder
   volumes:
-    - ./ember:/node/src
+    - ./workspace/APP_WEB:/node/src
   ports:
     - "4200:4200"
     - "49152:49152"
@@ -18,7 +18,7 @@ emberrun:
 gitflowcli:
   image: quay.io/webcenter/gitflow-coder
   volumes:
-    - .:/workspace
+    - ./workspace:/workspace
     - /tmp/.X11-unix:/tmp/.X11-unix:ro
   environment:
     - DISPLAY
@@ -26,7 +26,7 @@ gitflowcli:
 nodejscli:
   image: quay.io/webcenter/nodejs-coder
   volumes:
-    - ./nodejs:/node/src
+    - ./workspace:/node/src
     - /tmp/.X11-unix:/tmp/.X11-unix:ro
   environment:
     - DISPLAY
@@ -34,7 +34,7 @@ nodejscli:
 nodejsrun:
   image: quay.io/webcenter/nodejs-builder
   volumes:
-    - ./nodejs:/node/src
+    - ./workspace/APP_BACK:/node/src
   ports:
     - "9000:9000"
   command: grunt server
