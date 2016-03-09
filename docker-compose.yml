@@ -1,7 +1,7 @@
 embercli:
   image: quay.io/webcenter/ember-coder
   volumes:
-    - ./workspace:/node/src
+    - ./workspace:/node/src #APP_WEB
     - /tmp/.X11-unix:/tmp/.X11-unix:ro
   environment:
     - DISPLAY
@@ -26,7 +26,7 @@ gitflowcli:
 nodejscli:
   image: quay.io/webcenter/nodejs-coder
   volumes:
-    - ./workspace:/node/src
+    - ./workspace:/node/src #APP_BACK
     - /tmp/.X11-unix:/tmp/.X11-unix:ro
   environment:
     - DISPLAY
