@@ -44,4 +44,4 @@ nodejsrun:
 mongodb:
   image: mongo:3.2
   volumes:
-    - ./mongo:data/db
+    - ./mongo:/data/db
