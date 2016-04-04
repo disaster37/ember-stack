@@ -30,6 +30,8 @@ nodejscli:
     - /tmp/.X11-unix:/tmp/.X11-unix:ro
   environment:
     - DISPLAY
+  links:
+    - "mongodb:db"
 
 nodejsrun:
   image: quay.io/webcenter/nodejs-builder
