@@ -13,6 +13,8 @@ emberrun:
   ports:
     - "4200:4200"
     - "49152:49152"
+  links:
+    - "nodejsrun:backend"
   command: ember serve
 
 gitflowcli:
